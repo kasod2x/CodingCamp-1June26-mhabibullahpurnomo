@@ -1,0 +1,376 @@
+/* ── CSS Variables: Light theme (default) ── */
+:root {
+    --bg-gradient: linear-gradient(135deg, #6b73c1 0%, #9b59b6 50%, #8e44ad 100%);
+    --card-bg: #fff;
+    --card-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    --text-primary: #222;
+    --text-secondary: #888;
+    --text-body: #333;
+    --accent: #5b6ec7;
+    --input-border: #c8d0f0;
+    --input-text: #444;
+    --divider: #f0f0f0;
+    --btn-secondary-bg: #e0e0e0;
+    --btn-secondary-text: #444;
+    --topbar-text: rgba(255,255,255,0.9);
+}
+
+/* ── Dark theme ── */
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #1a1d2e 0%, #2c1e3e 50%, #1e1428 100%);
+    --card-bg: #1e2133;
+    --card-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    --text-primary: #e8e8f0;
+    --text-secondary: #8888aa;
+    --text-body: #c8c8d8;
+    --accent: #818cf8;
+    --input-border: #3a3f5c;
+    --input-text: #c8c8d8;
+    --divider: #2a2d42;
+    --btn-secondary-bg: #2e3250;
+    --btn-secondary-text: #c8c8d8;
+    --topbar-text: rgba(255,255,255,0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 30px;
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.3s;
+}
+
+/* ── Top Bar ── */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 4px 8px;
+}
+
+.topbar-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--topbar-text);
+    letter-spacing: 0.5px;
+}
+
+/* ── Card ── */
+.card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 24px 32px;
+    box-shadow: var(--card-shadow);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* ── Clock Card ── */
+.clock-card {
+    text-align: center;
+}
+
+#clock {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: 2px;
+}
+
+#date {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 4px 0 8px;
+}
+
+#greeting {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ── Name row ── */
+.name-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 6px;
+    min-height: 28px;
+}
+
+.display-name {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.name-editor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.name-editor input {
+    padding: 7px 12px;
+    border: 1.5px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    color: var(--input-text);
+    background: var(--card-bg);
+    transition: border-color 0.2s;
+    width: 200px;
+}
+
+.name-editor input:focus {
+    border-color: var(--accent);
+}
+
+/* ── Buttons ── */
+.btn {
+    padding: 8px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btn:hover { opacity: 0.85; }
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.icon-btn {
+    padding: 6px 10px;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* ── Bottom Row ── */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ── Focus Timer ── */
+.timer-card {
+    text-align: center;
+}
+
+.timer-card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+#timer-display {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent);
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+}
+
+/* ── Pomodoro setter ── */
+.pomodoro-set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.pomodoro-set label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.pomodoro-set input[type="number"] {
+    width: 64px;
+    padding: 6px 10px;
+    border: 1.5px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    color: var(--input-text);
+    background: var(--card-bg);
+    text-align: center;
+    transition: border-color 0.2s;
+}
+
+.pomodoro-set input[type="number"]:focus {
+    border-color: var(--accent);
+}
+
+.timer-btns {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ── Tasks ── */
+.tasks-card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+}
+
+.task-input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.task-input-row input {
+    flex: 1;
+    padding: 9px 12px;
+    border: 1.5px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    color: var(--input-text);
+    background: var(--card-bg);
+    transition: border-color 0.2s;
+}
+
+.task-input-row input:focus {
+    border-color: var(--accent);
+}
+
+#task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#task-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 4px;
+    border-bottom: 1px solid var(--divider);
+}
+
+#task-list li:last-child {
+    border-bottom: none;
+}
+
+#task-list li input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+#task-list li span {
+    flex: 1;
+    font-size: 0.95rem;
+    color: var(--text-body);
+}
+
+#task-list li span.done {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+/* ── Quick Links ── */
+.links-card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+}
+
+.link-input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.link-input-row input {
+    flex: 1;
+    padding: 9px 12px;
+    border: 1.5px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+    color: var(--input-text);
+    background: var(--card-bg);
+    transition: border-color 0.2s;
+}
+
+.link-input-row input:focus {
+    border-color: var(--accent);
+}
+
+#link-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.link-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.link-btn:hover { opacity: 0.85; }
+
+.link-btn .remove-link {
+    background: rgba(255,255,255,0.25);
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.link-btn .remove-link:hover {
+    background: rgba(255,255,255,0.45);
+}
